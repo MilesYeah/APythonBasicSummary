@@ -1,0 +1,182 @@
+# Django settings
+
+----------------------------------------------------------------------------------------------------
+## AUTH_PASSWORD_VALIDATORS
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+## BASE_DIR
+获取当前项目路径的跟路径。
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+## Database
+
+[Document for database](https://docs.djangoproject.com/en/2.1/ref/settings/#databases)
+
+### for mysql
+
+```json
+DATABASE = {
+    'default' : {
+        'ENGINE' : 'django.db.backends.mysql',
+        'name' : 'dbname',
+        'USER': 'root',
+        'PASSWORD': '122456',
+        'HOST': "127.0.0.1"
+    }
+}
+
+```
+
+### for sqlite3
+
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+```
+
+
+
+----------------------------------------------------------------------------------------------------
+## INSTALLED_APPS
+
+```json
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'blog',
+    'blog2'
+]
+
+```
+
+* 每新建一个app的时候，都需要在这里加入到installed apps的列表中。
+
+
+
+
+----------------------------------------------------------------------------------------------------
+## MIDDLEWARE
+
+```json
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+```
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+## ROOT_URLCONF
+
+```json
+ROOT_URLCONF = 'blog_imooc.urls'
+```
+
+
+
+
+----------------------------------------------------------------------------------------------------
+## SECRET_KEY
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+## STATIC URLs 静态路径的配置
+
+
+### STATIC_URL
+
+```
+STATIC_URL = '/static/'     
+```
+* 如果只有这一行的话，此时并没有配置好static的根路径是在哪里。 并没有告诉Django系统static的根路径是在哪里。
+* 加入变量STATICFILES_DIRS可以声明static的根目录是在哪里。
+
+
+### STATICFILES_DIRS
+
+```json
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+
+]
+
+```
+
+
+
+
+----------------------------------------------------------------------------------------------------
+## Templates
+
+```json
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
+        'DIRS': [ os.path.join(BASE_DIR, 'Templates')],
+        # 模板文件夹的位置配置参数。以上例子就是将项目根目录下的Templates目录加入到项目的模板文件路径搜寻列表中。
+
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+## WSGI_APPLICATION
+
+
+

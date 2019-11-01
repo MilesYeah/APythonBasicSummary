@@ -1,0 +1,404 @@
+
+# 错误和异常
+
+到异常处理并不会导致代码混乱，而添加大量的if语句来检查各种可能的错误状态将导致代码的可读性极差。
+
+## 一些内置的异常类
+* Exception 几乎所有的异常类都是从它派生而来的
+* AttributeError 引用属性或给它赋值失败时引发
+* OSError 操作系统不能执行指定的任务（如打开文件）时引发，有多个子类
+* IndexError 使用序列中不存在的索引时引发，为LookupError的子类
+* KeyError 使用映射中不存在的键时引发，为LookupError的子类
+* NameError 找不到名称（变量）时引发
+* SyntaxError 代码不正确时引发
+* TypeError 将内置操作或函数用于类型不正确的对象时引发
+* ValueError 将内置操作或函数用于这样的对象时引发：其类型正确但包含的值不合适
+* ZeroDivisionError 在除法或求模运算的第二个参数为零时引发
+
+
+
+
+
+
+-----------------------------------------------------------------------------------
+
+## 错误和异常的概念
+
+
+错误
+* 错误和异常的概念
+* 常见的错误
+* 异常处理
+    - try-except及else/finally
+    - 截获异常
+    - try-finally
+    - 异常处理的综合使用
+* with-as语句与上下文管理
+* 标准异常和自定义异常
+* raise和assert
+
+
+### 错误
+* 语法错误：代码不符合解释器或编译器语法
+* 逻辑错误： 不完整或不合法输入或者计算出现问题
+
+### 异常
+执行过程中出现问题导致程序无法执行
+* 程序遇到逻辑或算法问题
+* 运行过程中计算机错误（内存不够或IO错误）
+
+### 错误和异常的区别
+错误
+* 代码运行前的语法或逻辑错误
+* 语法错误在执行前修改，逻辑错误无法修改
+
+异常分为两个步骤
+* 异常产生，检查到错误且解释器认为是异常，抛出异常
+* 异常处理，截获异常，忽略或终止程序处理异常
+
+### 常见错误（ipython）
+* NameError
+* SyntaxError
+* IOError
+* ZeroDivisionError
+* ValueError
+
+
+
+
+
+-----------------------------------------------------------------------------------
+
+## 错误和异常的处理 - try-except
+
+```py           
+try:                # 尝试执行的代码
+    pass            # 占据代码块，不做任何动作，仅仅保持代码的完整性
+except type1 as e1: # 针对错误type1的处理代码，将错误信息记录为e1
+    pass
+except (type1, ..., typen) as en: # 针对错误元组中的错误种类列表的处理代码，将错误信息记录为en
+    pass
+except:             # `一种非常危险的操作`,意味着忽略所有错误
+    pass
+except ...:         # 中间可以加入多个错误种类
+    pass
+except typeN as eN: # 针对错误typeN的处理代码，将错误信息记录为eN
+    pass
+else:               # 没有出现异常的时候才执行的部分
+    pass
+finally:            # 无论是否有异常，该部分都会被执行
+    pass
+```
+
+* 注意，虽然可以写很多except，但是如果try中的代码执行出错了，但是并不属于该段代码中列出的任何一种异常，那么这个时候是不会执行else和finally的，而是直接崩溃
+
+
+
+### try-except 
+Usage::
+```py
+try:   
+    try_suite
+except Exception as [e]:
+    exception_block
+```
+* try用来捕获try_suite中的错误，并且交给except处理
+* except用来处理异常，如果处理异常和设置捕获异常一致，使用exception_block处理异常
+
+try-except code examples
+++++++++++++++++++++++++++++++++
+case1::
+```py
+try:
+    undef
+except:
+    print('catch an Exception')
+```
+case2::
+```py
+try:
+    if undef
+except:
+    print('catch an Exception')
+```
+* case1可以捕获异常，因为是运行时错误
+* case2不能捕获异常，因为是语法错误，运行前错误
+
+case3::
+```py
+try:
+    undef
+except NameError as e:
+    print('catch an Exception')
+```
+case4::
+```py
+try:
+    if undef
+except IOError as e:
+    print('catch an Exception')
+```
+* case3可以捕获异常，因为设置捕获的是NameError
+* case4不能捕获异常，因为设置捕获的是IOError，不会处理NameError
+
+
+try-except code a game
+++++++++++++++++++++++++++++++++
+猜数字小游戏
+* 开始游戏产生一个1-100的随机数
+* 用户输入，游戏根据输入值提示大或者小
+* 根据提示继续输入，直到猜中为止
+* 如果用户输入错误，程序可以处理异常
+
+
+```py
+import random
+num = random.randint(0, 100)
+while True:
+
+    try:
+        guess = int(input("Please input a number(0~100): "))
+    except ValueError as e:
+        print("Not a number, please input again!")
+        continue
+    if guess > num:
+        print("Bigger!")
+    elif guess < num:
+        print("Lower!")
+    else:
+        print("Bravo!")
+        break
+
+print("This is end!")
+```
+
+### try-except 处理多个异常
+Usage::
+```py
+try:   
+    try_suite
+except Exception1 as [e]:
+    exception_block1
+except Exception2 as [e]:
+    exception_block2
+...
+except ExceptionX as [e]:
+    exception_blockX
+```
+
+
+### try-except-else 
+Usage::
+```py
+try:   
+    try_suite
+except Exception1 as [e]:
+    exception_block1
+else:
+    none_exception
+```
+如果没有异常，执行else语句中的代码
+
+
+
+### try-except-finally 
+* 规则：try-finally无论是否检查到异常，都会执行finally代码
+* 作用：为一场处理事件提供清理机制，如用来关闭文件或释放系统资源
+
+Usage::
+```py
+try:   
+    try_suite
+except Exception1 as [e]:
+    exception_block1
+finally:
+    none_exception
+```
+* 如果try语句没有捕获异常，执行完try代码段后，执行finally
+* 若try捕获异常，首先执行except处理错误，然后执行finally
+
+
+```py
+try:
+    f = open("1.txt")
+    line = f.read(2)
+    num = int(line)
+    print(f"read number {num}")
+except IOError as e:
+    print(f"catch IOError: {e}")
+except ValueError as e:
+    print(f"catch ValueError: {e}")
+finally:
+    try:
+        print("Close file.")
+        f.close()
+    except NameError as e:
+        print(f"Catch NameError: {e}")
+```
+
+
+### try-except-else-finally
+Usage::
+```py
+try:   
+    try_suite
+except Exception1 as [e]:
+    exception_block1
+else:
+    else_block
+finally:
+    do_finally
+```
+* 如果try语句没有捕获异常，执行完try代码段之后，执行else代码段，最后执行finally
+* 若try捕获异常，首先执行except处理错误，然后执行finally
+
+
+
+
+
+-----------------------------------------------------------------------------------
+
+## 错误和异常的处理 - with-as
+
+
+### with语句
+Usage::
+```py
+with context [as var]:
+    with_block
+```
+* with语句用来代替try-except-finally，使代码更加简洁。
+* context表达式返回的是一个对象
+* var用来保存context返回对象，单个返回值或元组
+* with_suit使用var变量来对context返回的对象进行操作
+
+
+```py
+with open("1.txt") as f:
+    for lien in f.readlines():
+        print(line)
+```
+* 打开1.txt文件
+* f接受的是由open返回的文件对象，文件为1.txt
+* with中的代码执行完成后，文件将会被自动关闭
+
+
+### with explanations
+* 上下文管理协议：包含的方法为__enter__()和__exit__()，支持该协议的对象要实现这两个方法
+* 上下文管理器：定义执行with语句时要建立的运行时上下文，负责执行with语句上下文中的进入和退出操作
+* 进入上下文管理器：调用管理器__enter__方法，如果设置as var语句，var变量接受__enter__()方法返回的值
+* 退出上下文管理器：调用管理器__exit__方法
+
+
+```py
+class Mycontext(object):
+    def __init__(self, name):
+        self.name = name
+    
+    def __enter__(self):
+        print('__enter__')
+        return self
+    
+    def do_sth(self):
+        print("do sth")
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        print("__exit__")
+        print(f"Error {exc_type}, info {exc_value}")
+
+if __name__ == "__main__":
+    with Mycontext('test context') as f:
+        print(f.name)
+        f.do_sth()
+```
+
+### with 应用场景
+* 文件操作
+* 进程线程之间互斥现象，如互斥锁
+* 支持上下文的其他对象
+
+
+
+
+-----------------------------------------------------------------------------------
+
+## 错误和异常的处理 - raise
+
+主要用于主动抛出异常
+
+raise [Exception [, args]]
+* Exception: 异常类
+* args： 描述异常信息的元组
+
+
+
+-----------------------------------------------------------------------------------
+
+## 错误和异常的处理 - assert
+
+断言语句：assert语句用于检测表达式是否为真，如果为假，引发AssertionError错误
+
+assert expression [,args]
+* exception：表达式
+* args： 判断条件的描述信息
+
+
+-----------------------------------------------------------------------------------
+
+## 标准异常
+
+python内奸异常，程序执行前就已经存在
+
+BaseException（所有异常基类）
+* KeyboardInterrupt（用户终端Ctrl + c）
+* Exception（常见错误的基类）
+    - SyntaxError
+    - NameError
+    - IOError
+    - ImportError
+    - ...
+* SystemExit（Python解释器退出）
+
+
+
+
+-----------------------------------------------------------------------------------
+
+## 自定义异常
+
+* Python允许自定义异常，用于描述Python中没有涉及的异常情况
+* 自定义异常必须继承Exception类
+* 自定义异常只能主动触发
+
+
+```py
+class CustomError(Exception):
+    def __init__(self, info):
+        Exception.__init__(self)
+        self.info = info
+
+    def __str__(self):
+        return f"CustomError {self.info}"
+
+try:
+    raise CustomError("test custom error")
+except CustomError as e:
+    print(f"Error info {e}")
+```
+
+
+```py
+class CustomError(Exception):
+    def __init__(self, info):
+        Exception.__init__(self)
+        self.info = info
+        print(id(self))
+
+    def __str__(self):
+        return f"CustomError {self.info}"
+
+try:
+    raise CustomError("test custom error")
+except CustomError as e:
+    print(f"Obj ID {id(e)}, Error info {e}")
+```

@@ -1,0 +1,27 @@
+# Django shell
+
+
+
+
+
+## 什么是Django shell
+* 一个Python的交互式命令行程序
+* 自动引入我们的项目环境
+* 可以使用它与我们的项目进行交互
+
+
+### Django shell有什么用
+* 可以使用它来进行一些调试工作
+* 测试未知方法
+
+
+### 如何使用Django shell
+
+例子：
+``` python
+python manage.py shell
+from blog.models import Article
+Article.objects.all()
+```
+
+
