@@ -32,7 +32,8 @@ bytearray 表示字节数组，是一个可变的数据类型。
 ### bytes的相关函数
 #### bytes的定义
 
-**bytes() **
+**bytes()**
+
 定义空字节，空字节前面有个 b 来区分。
 ```
 a = bytes()
@@ -40,7 +41,8 @@ a
 b''
 ```
 
-**bytes(int) **
+**bytes(int)**
+
 直接定义字节的个数，就是创造了几个空字节，但是每个字节里面是空的。
 ```
 a = bytes(3)
@@ -49,7 +51,8 @@ b'\x00\x00\x00'
 # 这是ASCII 0 ，不是阿拉伯数字0，阿拉伯数字0是十进制48，十六进制30.
 ```
 
-**bytes(iteratable) **
+**bytes(iteratable)**
+
 创造可迭代对象的元素个数相等的字节，然后把每个元素填充进去。 
 注意，必须是整型int 的可迭代对象。
 ```
@@ -60,7 +63,8 @@ b'\x00\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e'
 # 前面那些 00 01 02 03，也有自己的意思，但是没办法用字符表示出来，所以就用它的十六进制表示法表示出来。
 ```
 
-**bytes(byte) or bytes(‘string’,encode) **
+**bytes(byte) or bytes(‘string’,encode)**
+
 造一个字节序列，还是得用字节。
 ```
 a = bytes(range(3))
@@ -91,7 +95,7 @@ f = b'\x61\x62\x63'
 不过一般定义字节序列类型的值，都用上面的方法直接定义。
 
 #### bytes的“修改”
-bytes 和 str 一样，都是不可修改的类型，所以，所谓的修改，都是创造一个新的bytes 和str。
+bytes 和 str 一样，都是不可修改的类型，所以，所谓的修改，都是创造一个新的 bytes 和 str 。
 
 二者的用法也类似。
 ```
@@ -104,7 +108,8 @@ b'fuck'.find(b'u')
 # 查找某个字节的索引号
 ```
 
-**bytes.fromhex(‘hexstr’) **
+**bytes.fromhex(‘hexstr’)**
+
 这个意思是，用一串由十六进制数字组成的字符串，来表示字节。
 ```
 bytes.fromhex('53 75 63 6b 20 4d 79 20 44 69 63 6b')
@@ -193,7 +198,8 @@ int.from_bytes(b'fuck','big')
 
 后面的byteorder 是指大小端模式。
 
-**int.to_bytes(length,byteorder) **
+**int.to_bytes(length,byteorder)**
+
 把一个整型的值，转换成字节。
 ```
 1718969195.to_bytes(4,'big')

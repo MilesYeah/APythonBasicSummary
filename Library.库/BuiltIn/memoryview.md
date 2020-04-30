@@ -22,24 +22,27 @@ obj -- 对象
 以下实例展示了 memoryview 的使用方法：
 
 Python2.x 应用：
-    >>>v = memoryview('abcefg')
-    >>> v[1]
-    'b'
-    >>> v[-1]
-    'g'
-    >>> v[1:4]
-    <memory at 0x77ab28>
-    >>> v[1:4].tobytes()
-    'bce'
-
+```py
+>>>v = memoryview('abcefg')
+>>> v[1]
+'b'
+>>> v[-1]
+'g'
+>>> v[1:4]
+<memory at 0x77ab28>
+>>> v[1:4].tobytes()
+'bce'
+```
 Python3.x 应用：
-    >>>v = memoryview(bytearray("abcefg", 'utf-8'))
-    >>> print(v[1])
-    98
-    >>> print(v[-1])
-    103
-    >>> print(v[1:4])
-    <memory at 0x10f543a08>
-    >>> print(v[1:4].tobytes())
-    b'bce'
-    >>>
+```py
+>>>v = memoryview(bytearray("abcefg", 'utf-8'))
+>>> print(v[1])
+98
+>>> print(v[-1])
+103
+>>> print(v[1:4])
+<memory at 0x10f543a08>
+>>> print(v[1:4].tobytes())
+b'bce'
+>>>
+```

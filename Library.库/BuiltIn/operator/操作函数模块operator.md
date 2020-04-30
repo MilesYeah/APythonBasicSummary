@@ -23,83 +23,83 @@ https://docs.python.org/3/library/operator.html
 ## 常用对照速查表
 
 ### 中文版本
-实际操作	|   运算符	|   对应函数
---|--|--
-加	|   a + b	|   add(a, b)
-串联列表	|   seq1 + seq2	|   concat(seq1, seq2)
-查询包含	|   obj in seq	|   contains(seq, obj)
-除	|   a / b	|   truediv(a, b)
-除	|   a // b	|   floordiv(a, b)
-位与	|   a & b	|   and_(a, b)
-位异或	|   a ^ b	|   xor(a, b)
-位反	|   ~ a	|   invert(a)
-位或	|   a | b	|   or_(a, b)
-指数	|   a ** b	|   pow(a, b)
-判断	|   a is b	|   is_(a, b)
-判断	|   a is not b	|   is_not(a, b)
-索引赋值	|   obj[k] = v	|   setitem(obj, k, v)
-索引删除	|   del obj[k]	|   delitem(obj, k)
-索引查询	|   obj[k]	|   getitem(obj, k)
-位左移	|   a << b	|   lshift(a, b)
-模	|   a % b	|   mod(a, b)
-乘	|   a * b	|   mul(a, b)
-矩阵乘（存在bug）	|   a @ b	|   matmul(a, b)
-算数取反	|   -a	|   neg(a)
-逻辑取反	|   not a	|   not_(a)
-取正	|   +a	|   pos(a)
-位右移	|   a >> b	|   rshift(a, b)
-切片赋值	|   seq[i:j] = values	|   setitem(seq, slice(i, j), values)
-切片删除	|   del seq[i:j]	|   delitem(seq, slice(i, j))
-切片	|   seq[i:j]	|   getitem(seq, slice(i, j))
-格式化字符串	|   s % obj	|   mod(s, obj)
-减	|   a - b	|   sub(a, b)
-为真检验	|   obj	|   truth(obj)
-大小判断	|   a < b	|   lt(a, b)
-大小判断	|   a <= b	|   le(a, b)
-相等判断	|   a == b	|   eq(a, b)
-不等判断	|   a != b	|   ne(a, b)
-大小判断	|   a >= b	|   ge(a, b)
-大小判断	|   a > b	|   gt(a, b)
+| 实际操作          | 运算符            | 对应函数                          |
+| ----------------- | ----------------- | --------------------------------- |
+| 加                | a + b             | add(a, b)                         |
+| 串联列表          | seq1 + seq2       | concat(seq1, seq2)                |
+| 查询包含          | obj in seq        | contains(seq, obj)                |
+| 除                | a / b             | truediv(a, b)                     |
+| 除                | a // b            | floordiv(a, b)                    |
+| 位与              | a & b             | and_(a, b)                        |
+| 位异或            | a ^ b             | xor(a, b)                         |
+| 位反              | ~ a               | invert(a)                         |
+| 位或              | a                 | b                                 | or_(a, b) |
+| 指数              | a ** b            | pow(a, b)                         |
+| 判断              | a is b            | is_(a, b)                         |
+| 判断              | a is not b        | is_not(a, b)                      |
+| 索引赋值          | obj[k] = v        | setitem(obj, k, v)                |
+| 索引删除          | del obj[k]        | delitem(obj, k)                   |
+| 索引查询          | obj[k]            | getitem(obj, k)                   |
+| 位左移            | a << b            | lshift(a, b)                      |
+| 模                | a % b             | mod(a, b)                         |
+| 乘                | a * b             | mul(a, b)                         |
+| 矩阵乘（存在bug） | a @ b             | matmul(a, b)                      |
+| 算数取反          | -a                | neg(a)                            |
+| 逻辑取反          | not a             | not_(a)                           |
+| 取正              | +a                | pos(a)                            |
+| 位右移            | a >> b            | rshift(a, b)                      |
+| 切片赋值          | seq[i:j] = values | setitem(seq, slice(i, j), values) |
+| 切片删除          | del seq[i:j]      | delitem(seq, slice(i, j))         |
+| 切片              | seq[i:j]          | getitem(seq, slice(i, j))         |
+| 格式化字符串      | s % obj           | mod(s, obj)                       |
+| 减                | a - b             | sub(a, b)                         |
+| 为真检验          | obj               | truth(obj)                        |
+| 大小判断          | a < b             | lt(a, b)                          |
+| 大小判断          | a <= b            | le(a, b)                          |
+| 相等判断          | a == b            | eq(a, b)                          |
+| 不等判断          | a != b            | ne(a, b)                          |
+| 大小判断          | a >= b            | ge(a, b)                          |
+| 大小判断          | a > b             | gt(a, b)                          |
 
 ### English version
 
-Operation	|   Syntax	|   Function
-------------|-----------|------------
-Addition	|   a + b	|   add(a, b)
-Concatenation	|   seq1 + seq2	|   concat(seq1, seq2)
-Containment Test	|   obj in seq	|   contains(seq, obj)
-Division	|   a / b	|   truediv(a, b)
-Division	|   a // b	|   floordiv(a, b)
-Bitwise And	|   a & b	|   and_(a, b)
-Bitwise Exclusive Or	|   a ^ b	|   xor(a, b)
-Bitwise Inversion	|   ~ a	|   invert(a)
-Bitwise Or	|   a | b	|   or_(a, b)
-Exponentiation	|   a ** b	|   pow(a, b)
-Identity	|   a is b	|   is_(a, b)
-Identity	|   a is not b	|   is_not(a, b)
-Indexed Assignment	|   obj[k] = v	|   setitem(obj, k, v)
-Indexed Deletion	|   del obj[k]	|   delitem(obj, k)
-Indexing	|   obj[k]	|   getitem(obj, k)
-Left Shift	|   a << b	|   lshift(a, b)
-Modulo	|   a % b	|   mod(a, b)
-Multiplication	|   a * b	|   mul(a, b)
-Matrix Multiplication	|   a @ b	|   matmul(a, b)
-Negation (Arithmetic)	|   - a	|   neg(a)
-Negation (Logical)	|   not a	|   not_(a)
-Positive	|   + a	|   pos(a)
-Right Shift	|   a >> b	|   rshift(a, b)
-Slice Assignment	|   seq[i:j] = values	|   setitem(seq, slice(i, j), values)
-Slice Deletion	|   del seq[i:j]	|   delitem(seq, slice(i, j))
-Slicing	|   seq[i:j]	|   getitem(seq, slice(i, j))
-String Formatting	|   s % obj	|   mod(s, obj)
-Subtraction	|   a - b	|   sub(a, b)
-Truth Test	|   obj	|   truth(obj)
-Ordering	|   a < b	|   lt(a, b)
-Ordering	|   a <= b	|   le(a, b)
-Equality	|   a == b	|   eq(a, b)
-Difference	|   a != b	|   ne(a, b)
-Ordering	|   a >= b	|   ge(a, b)
-Ordering	|   a > b	|   gt(a, b)
+| Operation             | Syntax            | Function                          |
+| --------------------- | ----------------- | --------------------------------- |
+| Addition              | a + b             | add(a, b)                         |
+| Concatenation         | seq1 + seq2       | concat(seq1, seq2)                |
+| Containment Test      | obj in seq        | contains(seq, obj)                |
+| Division              | a / b             | truediv(a, b)                     |
+| Division              | a // b            | floordiv(a, b)                    |
+| Bitwise And           | a & b             | and_(a, b)                        |
+| Bitwise Exclusive Or  | a ^ b             | xor(a, b)                         |
+| Bitwise Inversion     | ~ a               | invert(a)                         |
+| Bitwise Or            | a                 | b                                 | or_(a, b) |
+| Exponentiation        | a ** b            | pow(a, b)                         |
+| Identity              | a is b            | is_(a, b)                         |
+| Identity              | a is not b        | is_not(a, b)                      |
+| Indexed Assignment    | obj[k] = v        | setitem(obj, k, v)                |
+| Indexed Deletion      | del obj[k]        | delitem(obj, k)                   |
+| Indexing              | obj[k]            | getitem(obj, k)                   |
+| Left Shift            | a << b            | lshift(a, b)                      |
+| Modulo                | a % b             | mod(a, b)                         |
+| Multiplication        | a * b             | mul(a, b)                         |
+| Matrix Multiplication | a @ b             | matmul(a, b)                      |
+| Negation (Arithmetic) | - a               | neg(a)                            |
+| Negation (Logical)    | not a             | not_(a)                           |
+| Positive              | + a               | pos(a)                            |
+| Right Shift           | a >> b            | rshift(a, b)                      |
+| Slice Assignment      | seq[i:j] = values | setitem(seq, slice(i, j), values) |
+| Slice Deletion        | del seq[i:j]      | delitem(seq, slice(i, j))         |
+| Slicing               | seq[i:j]          | getitem(seq, slice(i, j))         |
+| String Formatting     | s % obj           | mod(s, obj)                       |
+| Subtraction           | a - b             | sub(a, b)                         |
+| Truth Test            | obj               | truth(obj)                        |
+| Ordering              | a < b             | lt(a, b)                          |
+| Ordering              | a <= b            | le(a, b)                          |
+| Equality              | a == b            | eq(a, b)                          |
+| Difference            | a != b            | ne(a, b)                          |
+| Ordering              | a >= b            | ge(a, b)                          |
+| Ordering              | a > b             | gt(a, b)                          |
 
 
 ## 成员介绍
