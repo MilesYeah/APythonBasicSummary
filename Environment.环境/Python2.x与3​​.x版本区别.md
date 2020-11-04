@@ -200,14 +200,14 @@ Python 3.x 中去掉了``这种写法，只允许使用repr函数，这样做的
         pass
 
 ## 多个模块被改名（根据PEP8）
-旧的名字	|   新的名字
---|--
-_winreg	|   winreg
-ConfigParser	|   configparser
-copy_reg	|   copyreg
-Queue	|   queue
-SocketServer	|   socketserver
-repr	|   reprlib
+| 旧的名字     | 新的名字     |
+| ------------ | ------------ |
+| _winreg      | winreg       |
+| ConfigParser | configparser |
+| copy_reg     | copyreg      |
+| Queue        | queue        |
+| SocketServer | socketserver |
+| repr         | reprlib      |
 
 StringIO模块现在被合并到新的io模组内。 new, md5, gopherlib等模块被删除。 Python 2.6已经支援新的io模组。
 
