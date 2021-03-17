@@ -1,6 +1,7 @@
 /Debug/
 .vscode/*
-
+JupyterNoteBook/Matplotlib/*ipynb*
+JupyterNoteBook/Matplotlib/*png*
 
 
 

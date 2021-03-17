@@ -1,5 +1,5 @@
+# Linux下编译安装python3
 
-Linux下编译安装python3
 　　Linux下大部分系统默认自带python2.x的版本，最常见的是python2.6或python2.7版本，默认的python被系统很多程序所依赖，比如centos下的yum就是python2写的，所以默认版本不要轻易删除，否则会有一些问题，如果需要使用最新的Python3那么我们可以编译安装源码包到独立目录，这和系统默认环境之间是没有任何影响的，python3和python2两个环境并存即可
 
 　　首先去python官网下载python3的源码包，网址：https://www.python.org/
@@ -12,7 +12,11 @@ Linux下编译安装python3
 
 　　python安装之前需要一些必要的模块，比如openssl，readline等，如果没有这些模块后来使用会出现一些问题，比如没有openssl则不支持ssl相关的功能，并且pip3在安装模块的时候会直接报错；没有readline则python交互式界面删除键和方向键都无法正常使用，至于需要什么模块在make完之后python会给出提示，通过提示进行安装即可装全， 另外感谢园友的Glory_Lion的回复；下面是需要提前预装的依赖：
 
+```sh
+yum -y install gcc gcc-c++
 ```
+
+```sh
 yum -y install zlib zlib-devel
 yum -y install bzip2 bzip2-devel
 yum -y install ncurses ncurses-devel
@@ -25,6 +29,16 @@ yum -y install gdbm gdbm-devel
 yum -y install tk tk-devel
 yum -y install libffi libffi-devel
 ```
+
+```sh
+yum -y install zlib zlib-devel openssl openssl-devel
+yum -y install glib2-devel openssl-devel pcre-devel bzip2-devel gzip-devel
+yum -y install libffi-devel
+# yum -y install zlib zlib-devel
+yum -y install libjpeg libjpeg-devel
+yum -y install freetype freetype-devel
+```
+
 
 安装上面这些python内置模块基本上就比较全了，如果后续有其他必要的模块，会继续补充的，接下来可以安装python了，编译过程中会自动包含这些依赖.
 
@@ -77,3 +91,11 @@ python3 setup.py install
 　　这样执行完毕就为python3安装了readline，然后再进入交互式界面所有的操作都好用了
 
 分类: 00.dev - Python,02.Linux
+
+
+
+## Linux安装Python新版本之后会出现的问题
+1. Yum依赖Python2，所以，需要更改 yum 执行脚本的 python 解释器标注版本
+2. 防火墙也依赖 Python 。
+
+
