@@ -9,8 +9,8 @@ Allure 目前支持几乎所有可用的功能，除了Pytest环境。
 5. Description
    1. @allure.description
    2. @allure.description_html
-   3. @allure.dynamic.description 
-   4. Alternatively description 
+   3. @allure.dynamic.description
+   4. Alternatively description
 6. Links
    1. @allure.link, 提供指向所提供url的可单击链接
    2. @allure.issue 提供一个带有小错误图标的链接
@@ -20,8 +20,8 @@ Allure 目前支持几乎所有可用的功能，除了Pytest环境。
    2. allure.attach.file(source, name, attachment_type, extension):
 
 
-![](pics/../allure.feature.simple.png)
-![](pics/../allure.feature.png)
+![](../pics/allure.feature.simple.png)
+![](../pics/allure.feature.png)
 
 
 ## Feature

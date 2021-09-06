@@ -1,8 +1,58 @@
 # @file_data
 
 file_data 读取配置文件的时候，其默认编码为 utf8 ，所以有时候在使用中文配置文件的时候，会出现读取配置文件出错的问题。
+
 如果出现这个问题，那么我们可以来到 file_data 定义的源码部分，将 with open 的编码改掉，例如 gbk 编码。
 
+
+## 传递 JSON 文件
+testddt.json
+```json
+{
+  "first": [
+    {
+      "isRememberMe": "True",
+      "password": "111111",
+      "username": "root"
+    },
+    "200"
+  ],
+  "second": [
+    "{'isRememberMe': True, 'password': '1111111', 'username': 'root'}",
+    "406"
+  ],
+  "third": [
+    1,
+    2
+  ],
+  "four": "123123"
+}
+```
+```py
+from ddt import *
+
+
+# 在测试类前必须首先声明使用 ddt
+@ddt
+class imoocTest(unittest.TestCase):
+
+    @file_data('F:/test/config/testddt.json')
+    def test_json(self, data):
+        print(data)
+```
+运行结果
+```
+[{'isRememberMe': 'True', 'password': '111111', 'username': 'root'}, '200']
+["{'isRememberMe': True, 'password': '1111111', 'username': 'root'}", '406']
+[1, 2]
+123123
+```
+
+
+
+
+
+## 传递 YAML 文件
 
 ```txt  paras.txt
 abc,def
