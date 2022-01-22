@@ -8,3 +8,12 @@
 url = 'https://www.imooc.com'
 res = requests.get(url, verify=False)
 ```
+
+
+
+## 消除警告信息
+```py
+# 请求https的网站忽略SSL证书验证之后还是会出现警告信息，在请求前加上下面这句就可以禁用安全请求警告
+# InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings InsecureRequestWarning）
+requests.packages.urllib3.disable_warnings()
+```

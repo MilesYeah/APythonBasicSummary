@@ -14,7 +14,7 @@
 ##  方式一：临时使用国内pypi镜像安装
 ```sh
 pip install -i http://pypi.douban.com/simple/ numpy
-pip install -i http://pypi.douban.com/simple/--trusted-host pypi.douban.com  
+pip install -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com  
 #此参数“--trusted-host”表示信任，如果上一个提示不受信任，就使用这个
 ```
 
@@ -77,17 +77,18 @@ trusted-host=mirrors.aliyun.com
 ```ini
 [global]
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+
 [install]
 trusted-host = https://pypi.tuna.tsinghua.edu.cn  
-# trusted-host 此参数是为了避免麻烦，否则使用的时候可能会提示不受信任
 ```
+**trusted-host 此参数是为了避免麻烦，否则使用的时候可能会提示不受信任**
+
+
 ```ini
 [global]
-
 index-url=http://mirrors.aliyun.com/pypi/simple/
 
 [install]
-
 trusted-host=mirrors.aliyun.com
 ```
 修改完成后保存，启动cmd，使用 " pip install xxx "(xxx为你要下载的包名)，即可默认使用国内源下载。

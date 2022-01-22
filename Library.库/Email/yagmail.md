@@ -1,7 +1,7 @@
 # yagmail
 
 ```yaml
-# settings
+# settings.yaml
 email:
   # 发件人邮箱
   user:  123456.com
@@ -17,10 +17,18 @@ email:
   enclosures: report.zip
 ```
 
+
+
 ```py
 import yagmail
 import zipfile
 import os
+import yaml
+
+with open("settings.yaml", encoding='utf8') as f:
+    r = f.read()
+    d = yaml.load(r, Loader=yaml.FullLoader)
+    pass
 
 
 class EmailServe:
@@ -29,11 +37,10 @@ class EmailServe:
     def zip_report(file_path: str, out_path: str):
         """
         压缩指定文件夹
-        :param file_path: 目标文件夹路径
-        :param out_path: 压缩文件保存路径+xxxx.zip
+        :param file_path: 被压缩的文件夹路径
+        :param out_path: 生成的压缩文件名
         :return: 无
         """
-        file_path = f"{file_path}/html"
         zip = zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED)
         for path, dirnames, filenames in os.walk(file_path):
             # 去掉目标跟路径，只对目标文件夹下边的文件及文件夹进行压缩
@@ -78,5 +85,7 @@ class EmailServe:
 
 
 if __name__ == '__main__':
-    EmailServe.zip_report('../report/html', 'report.zip')
+    # EmailServe.zip_report('.', 'report.zip')
+    EmailServe.send_email(d['email'], file_path='.')
+
 ```
