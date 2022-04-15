@@ -1,5 +1,35 @@
 # 进程 vs. 线程
-阅读: 84742
+
+| 语法     | 多线程                                                 | 多进程                                                  |
+| -------- | ------------------------------------------------------ | ------------------------------------------------------- |
+| 引入模块 | from threading import Thread                           | from multiprocessing import Process                     |
+| 建立对象 | t = Thread(target=func_name, args=(para, ), name="t1") | p = Process(target=func_name, args=(para, ), name="p1") |
+| 启动     | t.start()                                              | p.start()                                               |
+| 等待结束 | t.join()                                               | p.join()                                                |
+|          |                                                        |                                                         |
+| 数据通信 | import queue                                           | from multiprocessing import Queue                       |
+|          | q = queue.Queue()                                      | q = Queue()                                             |
+|          | q.put(item)                                            | q.put(item)                                             |
+|          | item = q.get()                                         | item = q.get()                                          |
+|          |                                                        |                                                         |
+| 安全锁   | from threading import Lock                             | from multiprocessing import Lock                        |
+|          | lock = Lock()                                          | lock = Lock()                                           |
+|          | lock.acquire()                                         | with lock:                                              |
+|          | lock.release()                                         | # actions                                               |
+|          |                                                        | pass                                                    |
+|          |                                                        |                                                         |
+| 池化技术 | from concurrent.futures import ThreadPoolExecutor      | from concurrent.futures import ProcessPoolExecutor      |
+|          | with ThreadPoolExecutor() as exe:                      | with ProcessPoolExecutor() as exe:                      |
+|          | # method 1                                             | # method 1                                              |
+|          | result = exe.map(func, args)                           | result = exe.map(func, args)                            |
+|          | # method 2                                             | # method 2                                              |
+|          | future = exe.submit(func, args)                        | future = exe.submit(func, args)                         |
+|          | result = future.result()                               | result = future.result()                                |
+|          |                                                        |                                                         |
+|          |                                                        |                                                         |
+|          |                                                        |                                                         |
+
+
 
 我们介绍了多进程和多线程，这是实现多任务最常用的两种方式。现在，我们来讨论一下这两种方式的优缺点。
 

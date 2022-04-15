@@ -23,3 +23,44 @@ with open("hello.txt") as hello_file:
     for line in hello_file:
         print line
 ```
+
+
+| 模式 | 描述                                               | note                                                                                     |
+| ---- | -------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| r    | 只读                                               | 默认模式                                                                                 |
+|      |                                                    | 若文件不存在，报错                                                                       |
+| r+   | 读写，不创建                                       | 文件指针将会放在文件的开头                                                               |
+|      |                                                    | 可读可写，若文件不存在，报错                                                             |
+| rt   | 在读取文本时会自动把`\r\n`转换成`\n`               |                                                                                          |
+| rb   | 按照二进制位进行读取的，不会将读取的字节转换成字符 |                                                                                          |
+| rb+  | 以二进制格式打开一个文件用于读写                   | 文件指针将会放在文件的开头                                                               |
+|      |                                                    |                                                                                          |
+| w    | 新建只写,会将文件内容清零                          | 不能读出，若不存在会创建新文件                                                           |
+| wb   | 以二进制格式打开一个文件只用于写入                 | 如果该文件已存在则将其覆盖                                                               |
+|      |                                                    | 如果该文件不存在，创建新文件                                                             |
+| wb+  | 以二进制格式打开一个文件用于读写                   | 如果该文件已存在则将其覆盖。                                                             |
+|      |                                                    | 如果该文件不存在，创建新文件。                                                           |
+| w+   | 新建读写,会将文件内容清零                          | 可读可写，                                                                               |
+|      |                                                    | 如果该文件已存在则将其覆盖                                                               |
+|      |                                                    | 若文件不存在，创建                                                                       |
+| a    | 附加写方式打开，不可读                             | 如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后 |
+|      |                                                    | 如果该文件不存在，创建新文件进行写入                                                     |
+| a+   | 附加读写方式打开                                   | 如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式                     |
+|      |                                                    | 如果该文件不存在，创建新文件用于读写                                                     |
+| ab   | 以二进制格式打开一个文件用于追加                   | 如果该文件已存在，文件指针将会放在文件的结尾                                             |
+|      |                                                    | 如果该文件不存在，创建新文件进行写入                                                     |
+| ab+  | 以二进制格式打开一个文件用于追加                   | 如果该文件已存在，文件指针将会放在文件的结尾。                                           |
+|      |                                                    | 如果该文件不存在，创建新文件用于读写                                                     |
+|      |                                                    |                                                                                          |
+|      |                                                    |                                                                                          |
+
+
+## ref
+* [【Python】python文件打开方式详解——a、a+、r+、w+、rb、rt区别](https://bluebird.blog.csdn.net/article/details/47259805?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ETopBlog-1.topblog&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ETopBlog-1.topblog&utm_relevant_index=1)
+* [python文件默认打开方式_python文件打开的几种访问模式](https://blog.csdn.net/weixin_39627361/article/details/109869162?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.topblog&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.topblog&utm_relevant_index=2)
+* []()
+* []()
+* []()
+* []()
+* []()
+
