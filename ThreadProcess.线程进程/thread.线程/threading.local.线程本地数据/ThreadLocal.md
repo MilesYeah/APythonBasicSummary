@@ -85,7 +85,7 @@ t2.join()
 ```
 执行结果：
 ```
-C:\Users\robert.ye\Envs\trials\Scripts\python.exe F:/Mirror/SourceCode/trials/pythonBasic/tGrammar/tThreadProcess/tThreadLocal/0.sample.py
+C:\Users\Envs\trials\Scripts\python.exe F:/Mirror/SourceCode/trials/pythonBasic/tGrammar/tThreadProcess/tThreadLocal/0.sample.py
 Hello, Alice (in Thread-A)
 Hello, Bob (in Thread-B)
 

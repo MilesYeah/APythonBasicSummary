@@ -43,7 +43,7 @@ print('main thread stop')
 
 运行结果
 ```
-C:\Users\robert.ye\Envs\trials\Scripts\python.exe F:/Mirror/SourceCode/trials/pythonBasic/tGrammar/tThreadProcess/tThreadLock/0.noLock.py
+C:\Users\Envs\trials\Scripts\python.exe F:/Mirror/SourceCode/trials/pythonBasic/tGrammar/tThreadProcess/tThreadLock/0.noLock.py
 main thread stop
 123
 4567
@@ -94,7 +94,7 @@ for i in range(10):
 
 运行结果
 ```
-C:\Users\robert.ye\Envs\trials\Scripts\python.exe F:/Mirror/SourceCode/trials/pythonBasic/tGrammar/tThreadProcess/tThreadLock/0.hasLock.py
+C:\Users\Envs\trials\Scripts\python.exe F:/Mirror/SourceCode/trials/pythonBasic/tGrammar/tThreadProcess/tThreadLock/0.hasLock.py
 1
 2
 3
@@ -140,7 +140,7 @@ for i in range(10):
 
 ```
 ```
-C:\Users\robert.ye\Envs\trials\Scripts\python.exe F:/Mirror/SourceCode/trials/pythonBasic/tGrammar/tThreadProcess/tThreadLock/0.hasLock.2.py
+C:\Users\Envs\trials\Scripts\python.exe F:/Mirror/SourceCode/trials/pythonBasic/tGrammar/tThreadProcess/tThreadLock/0.hasLock.2.py
 1
 2
 3

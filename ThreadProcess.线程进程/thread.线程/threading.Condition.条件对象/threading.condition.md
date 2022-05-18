@@ -156,7 +156,7 @@ if __name__ == "__main__":
 ```
 
 ```
-C:\Users\robert.ye\Envs\trials\Scripts\python.exe F:/Mirror/SourceCode/trials/pythonBasic/tGrammar/tThreadProcess/threadCondition/producerConsumer2.py
+C:\Users\Envs\trials\Scripts\python.exe F:/Mirror/SourceCode/trials/pythonBasic/tGrammar/tThreadProcess/threadCondition/producerConsumer2.py
 Producer(producer_0):deliver one, now products:1
 Producer(producer_1):deliver one, now products:2
 Consumer(consumer_0):consume one, now products:1
@@ -236,7 +236,7 @@ tcreate.start()
 ```
 
 ```
-C:\Users\robert.ye\Envs\trials\Scripts\python.exe F:/Mirror/SourceCode/trials/pythonBasic/tGrammar/tThreadProcess/threadCondition/producerConsumer3.py
+C:\Users\Envs\trials\Scripts\python.exe F:/Mirror/SourceCode/trials/pythonBasic/tGrammar/tThreadProcess/threadCondition/producerConsumer3.py
 0
 0
 0
